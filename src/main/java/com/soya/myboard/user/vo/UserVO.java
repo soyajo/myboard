@@ -20,7 +20,7 @@ public class UserVO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int user_no;
+    private int userNo;
 
     @Column(nullable = true, name = "user_id")
     private String userId;
@@ -38,15 +38,15 @@ public class UserVO {
     private String updateDt;
 
     @OneToMany
-    @JoinColumn(name = "bd_no")
+    @JoinColumn(name = "bdNo")
     private List<BoardVO> boardVOS = new ArrayList<>();
 
     @OneToMany
-    @JoinColumn(name = "cmt_no")
+    @JoinColumn(name = "cmtNo")
     private List<CommentVO> commentVOS = new ArrayList<>();
 
     @OneToMany
-    @JoinColumn(name = "auth_no")
+    @JoinColumn(name = "authNo")
     private List<AuthVO> authVOS = new ArrayList<>();
 
 }

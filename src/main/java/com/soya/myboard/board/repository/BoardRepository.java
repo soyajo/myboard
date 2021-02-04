@@ -12,5 +12,6 @@ public interface BoardRepository extends JpaRepository<BoardVO, Long> {
 
     Page<BoardVO> findAllByBdTitleContainingOrBdContentContaining(String bdTitle,String bdContent, Pageable pageable); // 검색기능 넣으려고하니까 에러 안됨 콘테이닝 안됨.
 
+    BoardVO findByBdNo(Long bdNo);
 }
 

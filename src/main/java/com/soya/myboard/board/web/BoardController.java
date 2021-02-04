@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +59,13 @@ public class BoardController {
 
         redirectAttributes.addFlashAttribute("redirectVO",redirectVO);
         return "redirect:/board/list";
+    }
+    @GetMapping("/view")
+    public String view(Long bdNo, HttpServletRequest request, Model model){
+        String no = request.getParameter("bdNo");
+        BoardVO boardVO = boardService.selectOne(bdNo);
+        model.addAttribute(boardVO);
+        return "board/view";
     }
     @GetMapping("/update")
     public String update(){

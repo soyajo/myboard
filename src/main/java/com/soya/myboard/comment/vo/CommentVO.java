@@ -18,7 +18,7 @@ public class CommentVO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int cmt_no;
+    private int cmtNo;
 
     @Column(nullable = true, name = "cmt_title")
     private String cmtTitle;
@@ -39,11 +39,11 @@ public class CommentVO {
     private String updateUser;
 
     @ManyToOne
-    @JoinColumn(name = "bd_no")
+    @JoinColumn(name = "bdNo")
     private BoardVO boardVO;
 
     @ManyToOne
-    @JoinColumn(name = "user_no")
+    @JoinColumn(name = "userNo")
     private UserVO userVO;
 
 }

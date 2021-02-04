@@ -13,5 +13,5 @@ public interface BoardService {
 
     void insert(BoardVO boardVO);
 
-    void selectOne(Long bd_no);
+    BoardVO selectOne(Long bdNo);
 }

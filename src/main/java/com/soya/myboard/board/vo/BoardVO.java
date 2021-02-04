@@ -21,7 +21,7 @@ public class BoardVO {
     //번호
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bd_no;
+    private Long bdNo;
     //제목
     @Column(nullable = true, name = "bd_title")
     private String bdTitle;
@@ -42,11 +42,11 @@ public class BoardVO {
     private String updateUser;
 
     @OneToMany
-    @JoinColumn(name = "cmt_no")
+    @JoinColumn(name = "cmtNo")
     private List<CommentVO> commentVOS = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "user_no")
+    @JoinColumn(name = "userNo")
     private UserVO userVO;
 
     @ManyToOne

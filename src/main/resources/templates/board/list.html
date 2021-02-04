@@ -34,8 +34,8 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="item, i : ${list}">
-                                    <td class="" th:text="${item.getBd_no()}">2</td>
-                                    <td class="" th:text="${item.getBdTitle()}"><a th:href="@{blog/view}">등록안내</a></td>
+                                    <td class="" th:text="${item.getBdNo()}">2</td>
+                                    <td class=""><a th:text="${item.getBdTitle()}" th:href="'/board/view?bdNo='+${item.getBdNo()}">등록안내</a></td>
                                     <td class="">관리자</td>
                                     <td class="" th:text="${item.getRegDt()}">2021.01.26</td>
                                     <td class="">1</td>

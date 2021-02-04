@@ -18,7 +18,7 @@ public class CategoryVO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ctgr_no;
+    private int ctgrNo;
 
     @Column(nullable = true, name = "ctgr_title")
     private String ctgrTitle;
@@ -33,7 +33,7 @@ public class CategoryVO {
     private String updateDt;
 
     @OneToMany
-    @JoinColumn(name = "bd_no")
+    @JoinColumn(name = "bdNo")
     private List<BoardVO> boardVOS = new ArrayList<>();
 
 }

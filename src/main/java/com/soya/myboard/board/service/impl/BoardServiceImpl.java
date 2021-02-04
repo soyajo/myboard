@@ -39,8 +39,8 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public void selectOne(Long bd_no) {
-
-        boardRepository.findById(bd_no);
+    public BoardVO selectOne(Long bdNo) {
+        BoardVO boardVO = boardRepository.findById(bdNo).orElse(null);
+        return boardVO;
     }
 }

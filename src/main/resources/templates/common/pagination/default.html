@@ -2,12 +2,12 @@
 	<nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">
 			<li class="page-item" th:classappend="${1 == list.getPageable().getPageNumber() + 1?'disabled' : ''}">
-				<a class="page-link" tabindex="-1" aria-disabled="true" th:href="@{/board/list(page=${list.getPageable().getPageNumber() - 1})}"><</a>
+				<a class="page-link" tabindex="-1" aria-disabled="true" th:href="@{/board/list(page=${list.getPageable().getPageNumber() - 1},searchText=${param.searchText})}"><</a>
 			</li>
-			<li class="page-item" th:classappend="${i == list.getPageable().getPageNumber() + 1?'disabled' : ''}" th:each="i : ${#numbers.sequence(startPage, endPage)}"><a class="page-link" th:text="${i}" th:href="@{/board/list(page=${i -1})}">1</a></li>
+			<li class="page-item" th:classappend="${i == list.getPageable().getPageNumber() + 1?'disabled' : ''}" th:each="i : ${#numbers.sequence(startPage, endPage)}"><a class="page-link" th:text="${i}" th:href="@{/board/list(page=${i -1}, searchText=${param.searchText})}">1</a></li>
 
 			<li class="page-item" th:classappend="${list.getTotalPages() == list.getPageable().getPageNumber() + 1?'disabled' : ''}">
-				<a class="page-link" th:href="@{/board/list(page=${list.getPageable().getPageNumber() + 1})}">></a>
+				<a class="page-link" th:href="@{/board/list(page=${list.getPageable().getPageNumber() + 1}, searchText=${param.searchText})}">></a>
 			</li>
 		</ul>
 	</nav>

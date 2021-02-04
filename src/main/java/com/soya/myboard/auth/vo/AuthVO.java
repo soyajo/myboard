@@ -20,7 +20,7 @@ public class AuthVO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int auth_no;
+    private int authNo;
 
     @Column(nullable = true, name = "auth_id")
     private String authId;
@@ -29,7 +29,7 @@ public class AuthVO {
     private int authLevel;
 
     @ManyToOne
-    @JoinColumn(name = "user_no")
+    @JoinColumn(name = "userNo")
     private UserVO userVO;
 
 }

@@ -64,7 +64,7 @@ public class BoardController {
     public String view(Long bdNo, HttpServletRequest request, Model model){
         String no = request.getParameter("bdNo");
         BoardVO boardVO = boardService.selectOne(bdNo);
-        model.addAttribute(boardVO);
+        model.addAttribute("boardVO",boardVO);
         return "board/view";
     }
     @GetMapping("/update")

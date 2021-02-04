@@ -7,26 +7,22 @@
     <div class="container">
         <div class="card mt-5 mb-3">
             <div class="card-body text-center">
-                <table class="table table-striped gong_tb text-center">
+                <table class="table table-vcenter card-table text-center">
                     <tr>
-                        <td>
-
-                        </td>
+                        <th>번호</th>
+                        <td th:text="${boardVO.getBdNo()}"></td>
                     </tr>
                     <tr>
-                        <td>
-
-                        </td>
+                        <th>주제</th>
+                        <td th:text="${boardVO.getBdTitle()}"></td>
                     </tr>
                     <tr>
-                        <td>
-
-                        </td>
+                        <th>등록일</th>
+                        <td th:text="${boardVO.getRegDt()}"></td>
                     </tr>
                     <tr>
-                        <td>
-
-                        </td>
+                        <th>내용</th>
+                        <td th:text="${boardVO.getBdContent()}"></td>
                     </tr>
                 </table>
             </div>

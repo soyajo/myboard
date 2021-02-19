@@ -18,32 +18,31 @@ public class CommentVO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int cmtNo;
+    private Long cmtNo;
 
-    @Column(nullable = true, name = "cmt_title")
-    private String cmtTitle;
+    private Long bdNo;
 
-    @Column(nullable = true, name = "cmt_content")
+    @Column(nullable = true)
     private String cmtContent;
 
-    @Column(nullable = true, name = "reg_dt")
+    @Column(nullable = true)
     private String regDt;
 
-    @Column(nullable = true, name = "reg_user")
+    @Column(nullable = true)
     private String regUser;
 
-    @Column(nullable = true, name = "update_dt")
+    @Column(nullable = true)
     private String updateDt;
 
-    @Column(nullable = true, name = "update_user")
+    @Column(nullable = true)
     private String updateUser;
 
-    @ManyToOne
-    @JoinColumn(name = "bdNo")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bdNo", referencedColumnName = "bdNo", foreignKey = @ForeignKey(name = "comment_FK"), insertable = false, updatable = false)
     private BoardVO boardVO;
 
-    @ManyToOne
-    @JoinColumn(name = "userNo")
-    private UserVO userVO;
+    /*@ManyToOne
+    @JoinColumn(name = "cmtNo", referencedColumnName = "userNo",insertable = false,updatable = false)
+    private UserVO userVO;*/
 
 }

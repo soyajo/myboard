@@ -14,6 +14,7 @@
                         <div class="card-body">
                             게시판 리스트
                             <hr/>
+                            <a class="btn btn-info ml-1" th:href="@{/blog/main}"><-</a>
                             <div>
                                 총 건수 : <span th:text="${list.getTotalElements()}"></span>
                             </div>
@@ -24,6 +25,7 @@
                             <table class="table table-striped gong_tb text-center">
                                 <thead>
                                 <tr>
+                                    <th class="">체크</th>
                                     <th class="">번호</th>
                                     <th class="">제목</th>
                                     <th class="">작성자</th>
@@ -34,6 +36,9 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="item, i : ${list}">
+                                    <td class="">
+                                        <input type="checkbox" th:value="${item.getBdNo()}">
+                                    </td>
                                     <td class="" th:text="${item.getBdNo()}">2</td>
                                     <td class=""><a th:text="${item.getBdTitle()}" th:href="'/board/view?bdNo='+${item.getBdNo()}">등록안내</a></td>
                                     <td class="">관리자</td>
@@ -49,8 +54,7 @@
                             </div>
                             <div class="float-right">
                                 <a class="btn btn-primary" th:href="@{/board/insert}">등록</a>
-                                <a class="btn btn-secondary ml-1" th:href="@{/blog/main}">뒤로</a>
-                                <a class="btn btn-info ml-1" th:href="@{/board/delete}">삭제</a>
+                                <a class="btn btn-danger ml-1" th:href="@{/board/delete}">삭제</a>
                             </div>
                         </div>
                     </div>

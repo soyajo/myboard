@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,40 +18,47 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "board", catalog = "test01")
-public class BoardVO {
+public class BoardVO implements Serializable {
     //번호
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bdNo;
+
+    private Long ctgrNo;
     //제목
-    @Column(nullable = true, name = "bd_title")
+    @Column(nullable = true)
     private String bdTitle;
     //내용
-    @Column(nullable = true, name = "bd_content")
+    @Column(nullable = true)
     private String bdContent;
     //등록일
-    @Column(nullable = true, name = "reg_dt")
+    @Column(nullable = true)
     private String regDt;
     //등록자
-    @Column(nullable = true, name = "reg_user")
+    @Column(nullable = true)
     private String regUser;
     //수정일
-    @Column(nullable = true, name = "update_dt")
+    @Column(nullable = true)
     private String updateDt;
     //수정자
-    @Column(nullable = true, name = "update_user")
+    @Column(nullable = true)
     private String updateUser;
+    //상태
+    @Column(nullable = true)
+    private int bdFlag;
 
-    @OneToMany
-    @JoinColumn(name = "cmtNo")
+    @OneToMany(fetch=FetchType.LAZY)
+    @JoinColumn( name="bdNo", referencedColumnName = "bdNo")
     private List<CommentVO> commentVOS = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "userNo")
     private UserVO userVO;
 
-    @ManyToOne
-    @JoinColumn(name = "ctgrNo")
-    private CategoryVO categoryVO;
+
+    //에러
+    /*@ManyToOne
+    @JoinColumn(name = "bdNo", referencedColumnName = "ctgrNo",insertable = false,updatable = false)
+    private CategoryVO categoryVO;*/
 
 }

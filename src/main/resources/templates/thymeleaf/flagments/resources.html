@@ -1,4 +1,4 @@
-<th:block th:fragment="css" xmlns="http://www.thymeleaf.org">
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="css">
     <!-- Bootstrap core CSS -->
     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
@@ -9,5 +9,5 @@
 
 
 <th:block th:fragment="js" xmlns="http://www.thymeleaf.org">
-
+    <script th:src="@{/vendor/jquery/jquery.js}"></script>
 </th:block>
